@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Tracker Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      color: #1f2937;
+      padding: 30px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 32px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #0f172a;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      background-color: #f1f5f9;
+    }
+
+    .button {
+      padding: 12px;
+      width: 100%;
+      background: linear-gradient(135deg, #10b981, #22c55e);
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #059669, #16a34a);
+    }
+
+    .dashboard-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .total-patients {
+      background: linear-gradient(to right, #a7f3d0, #34d399);
+      color: #064e3b;
+    }
+
+    .appointments {
+      background: linear-gradient(to right, #fcd34d, #facc15);
+      color: #78350f;
+    }
+
+    .alerts {
+      background: linear-gradient(to right, #fecaca, #f87171);
+      color: #7f1d1d;
+    }
+
+    .dashboard-icon {
+      font-size: 24px;
+    }
+
+    .rating {
+      display: flex;
+      gap: 6px;
+      font-size: 20px;
+    }
+
+    .star {
+      color: gold;
+    }
+
+    .main-content h1 {
+      font-size: 30px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .patient-card {
+      display: flex;
+      margin-bottom: 24px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .patient-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .patient-img {
+      width: 150px;
+      object-fit: cover;
+    }
+
+    .patient-content {
+      padding: 16px;
+    }
+
+    .patient-content h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .patient-content p {
+      font-size: 14px;
+      color: #475569;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .patient-card {
+        flex-direction: column;
+      }
+
+      .patient-img {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Add Patient -->
+      <div class="card">
+        <h3>➕ Add New Patient</h3>
+        <input type="text" class="input" placeholder="Patient Name" />
+        <input type="text" class="input" placeholder="Condition / Note" />
+        <button class="button">Add Patient</button>
+      </div>
+
+      <!-- Dashboard -->
+      <div class="card">
+        <h3>📊 Dashboard</h3>
+        <div class="dashboard-item total-patients">
+          <span class="dashboard-icon">🧑‍⚕️</span>
+          Total Patients: 58
+        </div>
+        <div class="dashboard-item appointments">
+          <span class="dashboard-icon">📅</span>
+          Upcoming Appointments: 12
+        </div>
+        <div class="dashboard-item alerts">
+          <span class="dashboard-icon">⚠️</span>
+          Alerts: 3
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="card">
+        <h3>⭐ Feedback</h3>
+        <div class="rating">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>🧾 Patient Records</h1>
+
+      <div class="patient-card">
+        
+        <div class="patient-content">
+          <h2>John Doe</h2>
+          <p>Condition: Hypertension | Last Visit: 12-Apr-2025</p>
+        </div>
+      </div>
+
+      <div class="patient-card">
+        
+        <div class="patient-content">
+          <h2>Jane Smith</h2>
+          <p>Condition: Diabetes Type 2 | Last Visit: 18-Apr-2025</p>
+        </div>
+      </div>
+
+      <div class="patient-card">
+        
+        <div class="patient-content">
+          <h2>Rahul Khanna</h2>
+          <p>Condition: Asthma | Last Visit: 10-Apr-2025</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
